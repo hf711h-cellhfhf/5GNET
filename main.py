@@ -1,23 +1,24 @@
-نتميكو.الاستيراد....نتميكو...  اكونيك هاندلر هاندلر
+from netmiko import ConnectHandler
 
-#(     إعدادات الاتصال بالجهاز إعدادات الاتصال بالجهاز  هنا سنضع الأوامر لاحقاً   )
- الجهاز =   {
- , 
- ' 192.168.1.1'
-     'المسؤول' 
-    "كلمة المرور"
- , 
+# Device configuration
+device = {
+    'device_type': 'generic',
+    'host': '192.168.1.1',
+    'username': 'admin',
+    'password': 'password',
+}
 
-   ديف.     
- حاول!: 
-          طباعة. طباعة.  "جاري الاتصال بالجهاز..."((
-   الاتصال = اكونيك  جهاز. 
-         "تم الاتصال بنجاح!"
-        #  هنا سنضع الأوامر لاحقاًالاتصال = اكونيك  جهاز.
-  (
-      )
-          طباعة.  (f"حدث خطأ أثناء الاتصال:  {هـ.}")
+def connect_to_device():
+    try:
+        print("Connecting to device...")
+        connection = ConnectHandler(**device)
+        print("Connected successfully!")
+        
+        # Here we will add network commands later
+        connection.disconnect()
+        print("Disconnected.")
+    except Exception as e:
+        print(f"Connection error: {e}")
 
-إذا..."__main__":
- (
-"مرحباً بك في مشروع 5GNET"
+if __name__ == "__main__":
+    connect_to_device()
