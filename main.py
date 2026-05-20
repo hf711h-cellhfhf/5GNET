@@ -1,24 +1,12 @@
-from netmiko import ConnectHandler
+import streamlit as st
 
-# Device configuration
-device = {
-    'device_type': 'generic',
-    'host': '192.168.1.1',
-    'username': 'admin',
-    'password': 'password',
-}
+st.title("5GNET Control Panel")
+st.write("Welcome to your first app!")
 
-def connect_to_device():
-    try:
-        print("Connecting to device...")
-        connection = ConnectHandler(**device)
-        print("Connected successfully!")
-        
-        # Here we will add network commands later
-        connection.disconnect()
-        print("Disconnected.")
-    except Exception as e:
-        print(f"Connection error: {e}")
+if st.button("Change Network Name"):
+    st.write("Executing command...")
 
-if __name__ == "__main__":
-    connect_to_device()
+if st.button("Change Password"):
+    st.write("Request sent to the modem!")
+
+ip_input = st.text_input("Enter Modem IP:", "192.168.10.1")
